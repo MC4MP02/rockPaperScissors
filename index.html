@@ -1,6 +1,6 @@
 <body>
   <h1>ROCK PAPER SCISSORS</h1>
-  <h2>Score:</h2>
+  <h2>Score</h2>
   <h2 id="score">0</h2>
   <div>
     <button id="rock">
@@ -85,9 +85,8 @@
 
   function game(userChoice) {
     const computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    console.log(userChoice);
     switch (userChoice + computerChoice) {
+      // user ROCK
       case OPTIONS.ROCK + OPTIONS.ROCK:
         draw();
         break;
@@ -97,11 +96,27 @@
       case OPTIONS.ROCK + OPTIONS.SCISSORS:
         win();
         break;
+
+      // user PAPER
       case OPTIONS.PAPER + OPTIONS.ROCK:
+        win();
+        break;
+      case OPTIONS.PAPER + OPTIONS.PAPER:
+        draw();
+        break;
+      case OPTIONS.PAPER + OPTIONS.SCISSORS:
+        lose();
+        break;
+
+      // user SCISSORS
+      case OPTIONS.SCISSORS + OPTIONS.ROCK:
         lose();
         break;
       case OPTIONS.SCISSORS + OPTIONS.PAPER:
         win();
+        break;
+      case OPTIONS.SCISSORS + OPTIONS.SCISSORS:
+        draw();
         break;
     }
   }
